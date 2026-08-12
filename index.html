@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian Calapsu Carvajal · Hoja de Vida</title>
+<meta name="description" content="Hoja de vida de Sebastian Calapsu Carvajal, Ingeniero de Sistemas y Asistente TIC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b2430;
+    --ink-soft:#4a5568;
+    --muted:#7c8698;
+    --line:#e4e8ee;
+    --paper:#ffffff;
+    --canvas:#eef1f6;
+    --brand:#0f5c4c;
+    --brand-deep:#0a4438;
+    --brand-tint:#e7f2ee;
+    --accent:#c98a3a;
+    --sidebar-bg:#0f3d33;
+    --sidebar-ink:#eaf3ef;
+    --sidebar-muted:#a9c7bd;
+    --sidebar-line:rgba(234,243,239,0.18);
+    --radius:14px;
+    --maxw:1040px;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--canvas);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4',Georgia,'Times New Roman',serif;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--brand-deep);}
+
+  .page{
+    max-width:var(--maxw);
+    margin:36px auto;
+    background:var(--paper);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,32,0.06), 0 18px 40px -24px rgba(15,23,32,0.28);
+    display:grid;
+    grid-template-columns:300px 1fr;
+  }
+
+  /* ===== Sidebar ===== */
+  .sidebar{
+    background:linear-gradient(175deg, var(--sidebar-bg), var(--brand-deep) 130%);
+    color:var(--sidebar-ink);
+    padding:44px 32px 40px;
+  }
+  .avatar{
+    width:88px;height:88px;border-radius:50%;
+    background:rgba(234,243,239,0.12);
+    border:1.5px solid var(--sidebar-line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Source Serif 4',serif;
+    font-size:32px;font-weight:700;
+    color:var(--sidebar-ink);
+    margin-bottom:20px;
+  }
+  .sidebar h1{
+    font-size:26px;
+    line-height:1.2;
+    color:#fff;
+  }
+  .sidebar .role{
+    margin-top:8px;
+    font-size:13.5px;
+    color:var(--sidebar-muted);
+    font-weight:500;
+    line-height:1.5;
+  }
+
+  .side-block{
+    margin-top:34px;
+    padding-top:24px;
+    border-top:1px solid var(--sidebar-line);
+  }
+  .side-block:first-of-type{margin-top:30px;}
+  .side-label{
+    font-size:11px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--sidebar-muted);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  .contact-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+  .contact-list li{display:flex;gap:10px;font-size:13.5px;align-items:flex-start;color:#f0f5f2;}
+  .contact-list .ico{
+    flex:0 0 auto;width:20px;height:20px;border-radius:6px;
+    background:rgba(234,243,239,0.12);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;margin-top:1px;
+  }
+  .contact-list a{color:#f0f5f2;text-decoration:none;word-break:break-word;}
+  .contact-list a:hover{text-decoration:underline;}
+
+  .meta-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:12.8px;color:var(--sidebar-muted);}
+  .meta-list b{color:#eef4f1;font-weight:600;}
+
+  .skill-group{margin-bottom:16px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group-title{font-size:12px;font-weight:700;color:#eef4f1;margin-bottom:8px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{
+    font-size:11.5px;
+    padding:4px 9px;
+    border-radius:999px;
+    background:rgba(234,243,239,0.1);
+    border:1px solid var(--sidebar-line);
+    color:#e6f0eb;
+    white-space:nowrap;
+  }
+
+  .edu-item{margin-bottom:14px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-item .deg{font-size:13.2px;font-weight:600;color:#fff;line-height:1.35;}
+  .edu-item .sch{font-size:12px;color:var(--sidebar-muted);margin-top:3px;}
+  .edu-item .yr{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:3px;}
+
+  /* ===== Main content ===== */
+  .main{padding:44px 46px 50px;}
+
+  .section{margin-bottom:34px;}
+  .section:last-child{margin-bottom:0;}
+  .section-head{
+    display:flex;align-items:baseline;gap:12px;
+    margin-bottom:16px;
+  }
+  .section-head h2{font-size:19px;font-weight:700;color:var(--brand-deep);white-space:nowrap;}
+  .section-head .rule{height:1px;flex:1;background:var(--line);}
+
+  .profile-text{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+
+  .job{
+    position:relative;
+    padding-left:22px;
+    padding-bottom:22px;
+    border-left:2px solid var(--line);
+  }
+  .job:last-child{padding-bottom:2px;}
+  .job::before{
+    content:"";
+    position:absolute;
+    left:-6px;top:3px;
+    width:10px;height:10px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2.5px solid var(--brand);
+  }
+  .job-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    margin-bottom:3px;
+  }
+  .job-title{font-size:15px;font-weight:700;color:var(--ink);}
+  .job-date{
+    font-size:11.5px;font-weight:700;color:var(--brand-deep);
+    background:var(--brand-tint);
+    padding:3px 10px;border-radius:999px;
+    white-space:nowrap;
+  }
+  .job-org{font-size:13px;color:var(--muted);margin-bottom:9px;font-weight:500;}
+  .job-org b{color:var(--ink-soft);font-weight:600;}
+  .job ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;}
+  .job li{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
+  .job li::marker{color:var(--accent);}
+
+  .ref-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .ref-card{
+    background:#fafbfc;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .ref-name{font-size:13.5px;font-weight:700;color:var(--ink);}
+  .ref-role{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+  .ref-phone{font-size:12.5px;color:var(--brand-deep);margin-top:6px;font-weight:600;}
+  .ref-tag{
+    display:inline-block;margin-top:8px;
+    font-size:10px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--accent);
+  }
+
+  footer.print-note{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    margin:22px auto 0;
+    max-width:var(--maxw);
+    padding-bottom:20px;
+  }
+
+  @media (max-width:820px){
+    .page{grid-template-columns:1fr;margin:0;border-radius:0;}
+    .main{padding:34px 24px 40px;}
+    .sidebar{padding:34px 24px 30px;}
+    .ref-grid{grid-template-columns:1fr;}
+  }
+
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none;margin:0;border-radius:0;grid-template-columns:270px 1fr;}
+    footer.print-note{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <div class="avatar">SC</div>
+    <h1>Sebastian Calapsu Carvajal</h1>
+    <div class="role">Ingeniero de Sistemas · Asistente TIC · Gestión Administrativa y de Operaciones</div>
+
+    <div class="side-block">
+      <div class="side-label">Contacto</div>
+      <ul class="contact-list">
+        <li><span class="ico">✉</span><a href="mailto:Calapsusebastian@gmail.com">Calapsusebastian@gmail.com</a></li>
+        <li><span class="ico">☎</span><a href="tel:+573208332844">320 833 2844</a></li>
+        <li><span class="ico">⌖</span>Vereda Filo de Pompeya, Garzón, Huila, Colombia</li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Datos personales</div>
+      <ul class="meta-list">
+        <li><b>C.C.</b> 1.077.871.726 de Garzón</li>
+        <li><b>Nacimiento:</b> 27/02/1996, Pital, Huila</li>
+        <li><b>Estado civil:</b> Soltero</li>
+        <li><b>Libreta militar:</b> Reservista, D.M. 056</li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Formación académica</div>
+      <div class="edu-item">
+        <div class="deg">Ingeniero de Sistemas</div>
+        <div class="sch">Corporación Unificada Nacional — CUN, Colombia</div>
+        <div class="yr">2026</div>
+      </div>
+      <div class="edu-item">
+        <div class="deg">Tecnólogo en Análisis y Desarrollo de Sistemas de Información</div>
+        <div class="sch">SENA — Servicio Nacional de Aprendizaje, Colombia</div>
+        <div class="yr">2023</div>
+      </div>
+      <div class="edu-item">
+        <div class="deg">Técnico en Explotaciones Agropecuarias Ecológicas</div>
+        <div class="sch">SENA — Servicio Nacional de Aprendizaje, Colombia</div>
+        <div class="yr">2012</div>
+      </div>
+      <div class="edu-item">
+        <div class="deg">Bachiller Académico — Media Técnica Agropecuaria</div>
+        <div class="sch">I.E. Ramón Alvarado Sánchez, Garzón, Huila</div>
+        <div class="yr">2012</div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-label">Habilidades</div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Tecnológicas</div>
+        <div class="chip-row">
+          <span class="chip">Levantamiento de requerimientos</span>
+          <span class="chip">Gestión de proyectos TIC</span>
+          <span class="chip">ERP OasisCom</span>
+          <span class="chip">Excel avanzado</span>
+          <span class="chip">Power BI</span>
+          <span class="chip">Paquete Office</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Figma</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Gestión</div>
+        <div class="chip-row">
+          <span class="chip">Control de inventarios</span>
+          <span class="chip">Gestión documental</span>
+          <span class="chip">Logística y exportaciones</span>
+          <span class="chip">Cumplimiento INVIMA</span>
+          <span class="chip">Informes ejecutivos</span>
+          <span class="chip">Análisis de datos</span>
+          <span class="chip">Cadena del café</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Personales</div>
+        <div class="chip-row">
+          <span class="chip">Vocación de servicio</span>
+          <span class="chip">Integridad</span>
+          <span class="chip">Trabajo en equipo</span>
+          <span class="chip">Trabajo bajo presión</span>
+          <span class="chip">Proactividad</span>
+          <span class="chip">Orientación a resultados</span>
+          <span class="chip">Aprendizaje continuo</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <section class="section">
+      <div class="section-head"><h2>Perfil Profesional</h2><div class="rule"></div></div>
+      <p class="profile-text">
+        Ingeniero de Sistemas con más de 3 años de experiencia en el sector cooperativo agroindustrial del Huila,
+        actualmente Asistente TIC: levantamiento de requerimientos, implementación de soluciones tecnológicas y
+        ejecución de proyectos hasta el despliegue. Trayectoria previa en gestión administrativa, control de
+        inventarios, gestión documental, logística de exportaciones y cumplimiento normativo (INVIMA), con análisis
+        de datos en Power BI, Excel avanzado y ERP OasisCom. Profesional con vocación de servicio, orientación a
+        resultados y compromiso con la transparencia y el desarrollo de la región.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Experiencia Laboral</h2><div class="rule"></div></div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Asistente TIC — Departamento de Compras de Café</div>
+          <div class="job-date">Abril 2026 – Actualidad</div>
+        </div>
+        <div class="job-org"><b>Coocentral</b> — Cooperativa Central de Caficultores del Huila · Garzón, Huila</div>
+        <ul>
+          <li>Analizó el área de compras de café para identificar necesidades tecnológicas y oportunidades de mejora en los procesos internos.</li>
+          <li>Levantó requerimientos tecnológicos con los diferentes actores del área, garantizando soluciones alineadas a las necesidades operativas.</li>
+          <li>Implementó soluciones tecnológicas orientadas a optimizar los flujos de trabajo y la eficiencia del departamento.</li>
+          <li>Ejecutó proyectos tecnológicos desde la planificación hasta el despliegue, asegurando el cumplimiento de plazos y objetivos.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Asistente Administrativo</div>
+          <div class="job-date">Enero 2024 – Abril 2026</div>
+        </div>
+        <div class="job-org"><b>Coocentral</b> · Garzón, Huila</div>
+        <ul>
+          <li>Garantizó el cumplimiento normativo ante INVIMA, asegurando estándares de seguridad, calidad e inocuidad en todos los productos.</li>
+          <li>Coordinó el control integral de inventarios (recepción, almacenamiento y despacho), reduciendo errores operativos.</li>
+          <li>Elaboró informes ejecutivos para gerencia y consejo directivo, con análisis de datos y recomendaciones estratégicas.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Auxiliar Administrativo</div>
+          <div class="job-date">Julio 2023 – Diciembre 2023</div>
+        </div>
+        <div class="job-org"><b>Coocentral</b> · Garzón, Huila</div>
+        <ul>
+          <li>Administró el sistema ERP OasisCom: actualizó el catálogo de productos y supervisó el inventario en tiempo real.</li>
+          <li>Generó informes para el consejo directivo con base en análisis de ventas, impulsando decisiones informadas.</li>
+          <li>Apoyó la gestión documental y coordinó procesos administrativos, mejorando la trazabilidad de la información.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Auxiliar — Coordinación de Compras de Café</div>
+          <div class="job-date">Enero 2023 – Julio 2023</div>
+        </div>
+        <div class="job-org"><b>Coocentral</b> · Garzón, Huila</div>
+        <ul>
+          <li>Optimizó el proceso de compras con herramientas digitales (Figma) y desarrolló soluciones en Excel que incrementaron la eficiencia operativa del área.</li>
+          <li>Gestionó cupos de café con sellos de certificación, promoviendo calidad, sostenibilidad y equidad en la cadena de suministro.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Archivista — Logística y Exportaciones</div>
+          <div class="job-date">Enero 2023 – Julio 2023</div>
+        </div>
+        <div class="job-org"><b>Coocentral</b> · Garzón, Huila</div>
+        <ul>
+          <li>Implementó un sistema de gestión documental que garantizó organización y acceso eficiente a la información, optimizando el flujo de trabajo del área.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Referencias</h2><div class="rule"></div></div>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-name">Juan Carlos Esteban Rivera</div>
+          <div class="ref-role">Coordinador de Compras de Café, Coocentral</div>
+          <div class="ref-phone">Tel: 317 669 6145</div>
+          <span class="ref-tag">Laboral</span>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Yesmin Ortiz Villareal</div>
+          <div class="ref-role">Coordinadora de Logística y Exportaciones, Coocentral</div>
+          <div class="ref-phone">Tel: 317 513 3054</div>
+          <span class="ref-tag">Laboral</span>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Yessika Ciceri</div>
+          <div class="ref-role">Jefe Inmediato, Área Administrativa, Coocentral</div>
+          <div class="ref-phone">Tel: 310 324 1800</div>
+          <span class="ref-tag">Laboral</span>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Erika Dayana Calapsu Carvajal</div>
+          <div class="ref-role">Paralegal en Corte, Inmigración al Día</div>
+          <div class="ref-phone">Tel: 316 867 4858</div>
+          <span class="ref-tag">Familiar</span>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Gerardo Carvajal Vargas</div>
+          <div class="ref-role">Desarrollador Senior, Mercado Libre</div>
+          <div class="ref-phone">Tel: 313 354 5798</div>
+          <span class="ref-tag">Familiar</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="print-note">Sebastian Calapsu Carvajal · Hoja de Vida</footer>
+
+</body>
+</html>

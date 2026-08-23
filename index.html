@@ -63,14 +63,22 @@
     padding:44px 32px 40px;
   }
   .avatar{
-    width:88px;height:88px;border-radius:50%;
+    width:130px;height:130px;border-radius:50%;
     background:rgba(234,243,239,0.12);
-    border:1.5px solid var(--sidebar-line);
+    border:2.5px solid rgba(234,243,239,0.35);
     display:flex;align-items:center;justify-content:center;
     font-family:'Source Serif 4',serif;
     font-size:32px;font-weight:700;
     color:var(--sidebar-ink);
-    margin-bottom:20px;
+    margin:0 auto 20px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(0,0,0,0.25);
+  }
+  .avatar img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center center;
+    display:block;
   }
   .sidebar h1{
     font-size:26px;
@@ -116,7 +124,8 @@
 
   .skill-group{margin-bottom:16px;}
   .skill-group:last-child{margin-bottom:0;}
-  .skill-group-title{font-size:12px;font-weight:700;color:#eef4f1;margin-bottom:8px;}
+  .skill-group-title{font-size:12px;font-weight:700;color:#eef4f1;margin-bottom:4px;}
+  .skill-group-sub{font-size:11px;color:var(--sidebar-muted);font-style:italic;margin-bottom:8px;}
   .chip-row{display:flex;flex-wrap:wrap;gap:6px;}
   .chip{
     font-size:11.5px;
@@ -133,6 +142,7 @@
   .edu-item .deg{font-size:13.2px;font-weight:600;color:#fff;line-height:1.35;}
   .edu-item .sch{font-size:12px;color:var(--sidebar-muted);margin-top:3px;}
   .edu-item .yr{font-size:11.5px;color:var(--accent);font-weight:700;margin-top:3px;}
+  .edu-item .edu-tp{font-size:10.5px;color:var(--sidebar-muted);margin-top:3px;font-style:italic;}
 
   /* ===== Main content ===== */
   .main{padding:44px 46px 50px;}
@@ -238,7 +248,9 @@
 
   <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar">
-    <div class="avatar">SC</div>
+    <div class="avatar">
+      <img src="foto.jpg" alt="Sebastian Calapsu Carvajal" onerror="this.style.display='none';this.parentElement.innerHTML='SC';">
+    </div>
     <h1>Sebastian Calapsu Carvajal</h1>
     <div class="role">Ingeniero de Sistemas · Asistente TIC · Gestión Administrativa y de Operaciones</div>
 
@@ -257,7 +269,9 @@
         <li><b>C.C.</b> 1.077.871.726 de Garzón</li>
         <li><b>Nacimiento:</b> 27/02/1996, Pital, Huila</li>
         <li><b>Estado civil:</b> Soltero</li>
-        <li><b>Libreta militar:</b> Reservista, D.M. 056</li>
+        <li><b>Tarjeta militar:</b> Segunda clase, D.M. 056</li>
+        <li><b>Tarjeta profesional:</b> 091122-0836264 CNDB</li>
+        <li><b>Licencia de conducción:</b> A2, B1, C1</li>
       </ul>
     </div>
 
@@ -267,6 +281,7 @@
         <div class="deg">Ingeniero de Sistemas</div>
         <div class="sch">Corporación Unificada Nacional — CUN, Colombia</div>
         <div class="yr">2026</div>
+        <div class="edu-tp">T.P. COPNIA 091122-0836264 CNDB</div>
       </div>
       <div class="edu-item">
         <div class="deg">Tecnólogo en Análisis y Desarrollo de Sistemas de Información</div>
@@ -305,7 +320,8 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">Gestión</div>
+        <div class="skill-group-title">Gestión Administrativa</div>
+        <div class="skill-group-sub">Como Asistente Administrativo</div>
         <div class="chip-row">
           <span class="chip">Control de inventarios</span>
           <span class="chip">Gestión documental</span>
@@ -340,10 +356,10 @@
       <p class="profile-text">
         Ingeniero de Sistemas con más de 3 años de experiencia en el sector cooperativo agroindustrial del Huila,
         actualmente Asistente TIC: levantamiento de requerimientos, implementación de soluciones tecnológicas y
-        ejecución de proyectos hasta el despliegue. Trayectoria previa en gestión administrativa, control de
-        inventarios, gestión documental, logística de exportaciones y cumplimiento normativo (INVIMA), con análisis
-        de datos en Power BI, Excel avanzado y ERP OasisCom. Profesional con vocación de servicio, orientación a
-        resultados y compromiso con la transparencia y el desarrollo de la región.
+        ejecución de proyectos hasta el despliegue. Trayectoria previa como <strong>Asistente Administrativo</strong> en gestión
+        administrativa, control de inventarios, gestión documental, logística de exportaciones y cumplimiento
+        normativo (INVIMA), con análisis de datos en Power BI, Excel avanzado y ERP OasisCom. Profesional con
+        vocación de servicio, orientación a resultados y compromiso con la transparencia y el desarrollo de la región.
       </p>
     </section>
 

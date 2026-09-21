@@ -269,9 +269,8 @@
 
   @media print{
     @page{size:letter;margin:0;}
-    body{background:#fff;display:flex;justify-content:center;}
-    .page{box-shadow:none;margin:0;border-radius:0;grid-template-columns:270px 1fr;transform-origin:top center;}
-    footer.print-note{display:none;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{transform-origin:top center;}
     .export-pdf-btn{display:none;}
   }
 </style>
@@ -516,8 +515,12 @@
     if(!page) return;
     page.style.transform = 'none';
     var PAGE_W = 816, PAGE_H = 1056; // Carta/Letter a 96dpi
+    var cs = window.getComputedStyle(page);
+    var marginTop = parseFloat(cs.marginTop) || 0;
+    var marginBottom = parseFloat(cs.marginBottom) || 0;
     var rect = page.getBoundingClientRect();
-    var scale = Math.min(PAGE_W / rect.width, PAGE_H / rect.height, 1);
+    var totalHeight = rect.height + marginTop + marginBottom;
+    var scale = Math.min(PAGE_W / rect.width, PAGE_H / totalHeight, 1);
     page.style.transform = 'scale(' + scale + ')';
   }
   function resetResumeScale(){

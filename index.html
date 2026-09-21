@@ -268,8 +268,9 @@
   }
 
   @media print{
-    body{background:#fff;}
-    .page{box-shadow:none;margin:0;border-radius:0;grid-template-columns:270px 1fr;}
+    @page{size:letter;margin:0;}
+    body{background:#fff;display:flex;justify-content:center;}
+    .page{box-shadow:none;margin:0;border-radius:0;grid-template-columns:270px 1fr;transform-origin:top center;}
     footer.print-note{display:none;}
     .export-pdf-btn{display:none;}
   }
@@ -507,6 +508,34 @@
 </div>
 
 <footer class="print-note">Sebastian Calapsu Carvajal · Hoja de Vida</footer>
+
+<script>
+(function(){
+  function fitResumeToOnePage(){
+    var page = document.querySelector('.page');
+    if(!page) return;
+    page.style.transform = 'none';
+    var PAGE_W = 816, PAGE_H = 1056; // Carta/Letter a 96dpi
+    var rect = page.getBoundingClientRect();
+    var scale = Math.min(PAGE_W / rect.width, PAGE_H / rect.height, 1);
+    page.style.transform = 'scale(' + scale + ')';
+  }
+  function resetResumeScale(){
+    var page = document.querySelector('.page');
+    if(page) page.style.transform = '';
+  }
+  window.addEventListener('beforeprint', fitResumeToOnePage);
+  window.addEventListener('afterprint', resetResumeScale);
+  if(window.matchMedia){
+    var mq = window.matchMedia('print');
+    if(mq.addEventListener){
+      mq.addEventListener('change', function(e){
+        if(e.matches){ fitResumeToOnePage(); } else { resetResumeScale(); }
+      });
+    }
+  }
+})();
+</script>
 
 </body>
 </html>
